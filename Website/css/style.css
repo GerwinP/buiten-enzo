@@ -1,7 +1,11 @@
 #sidebar-wrapper {
     background-image: url(../../Images/pattern-7oo0.png);   
-    overflow-x: visible;
-    overflow-y: scroll;
+    overflow: visible;
+}
+
+.col-md-12 {
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 body {
