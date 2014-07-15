@@ -1,0 +1,78 @@
+#sidebar-wrapper {
+    background-image: url(../../Images/pattern-7oo0.png);   
+    overflow-x: visible;
+    overflow-y: scroll;
+}
+
+body {
+    padding-top: 0px;   
+}
+
+.inset {
+    padding: 0px;   
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#menu {
+    position: absolute;
+    list-style: none;
+}
+
+#menu li {
+    position: relative;
+    float: left;
+    width: 250px;
+    line-height: 40px;
+    text-indent: 20px;
+} 
+
+#menu li a {
+    color: #999;
+    display: block;
+    text-decoration: none;
+}
+
+#menu li a:hover {
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+    text-decoration: none;
+}
+
+#menu li:hover {
+    background: #777;
+}
+
+#menu a {
+    display: block;
+    color: #000;
+    text-decoration: none;
+    line-height: 40px;
+}
+
+/*-------Dropdown--------*/
+#menu ul {
+    position: absolute;
+    left: -999em;
+    top: 2em;
+    list-style: none;
+}
+
+#menu li:hover ul {
+    position: absolute;
+    left: 250px;
+    top: 1px;
+}
+
+/* 2nd Level Drop */
+#nav li:hover ul ul {
+    left:-999em;
+}
+
+#nav ul li:hover ul {
+    left:192px;
+    top:-1px;
+}
