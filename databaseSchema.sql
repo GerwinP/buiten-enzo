@@ -2,13 +2,13 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
-CREATE SCHEMA IF NOT EXISTS `buiten_enzo` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
-USE `buiten_enzo` ;
+CREATE SCHEMA IF NOT EXISTS `md233161db301463` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `md233161db301463` ;
 
 -- -----------------------------------------------------
--- Table `buiten_enzo`.`Klant`
+-- Table `md233161db301463`.`Klant`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `buiten_enzo`.`klant` (
+CREATE TABLE IF NOT EXISTS `md233161db301463`.`klant` (
   `idKlant` INT NOT NULL AUTO_INCREMENT,
   `Voornaam` VARCHAR(100) NULL,
   `Achternaam` VARCHAR(100) NULL,
@@ -22,18 +22,18 @@ CREATE TABLE IF NOT EXISTS `buiten_enzo`.`klant` (
 );
 
 -- -----------------------------------------------------
--- Table `buiten_enzo`.`Categorie`
+-- Table `md233161db301463`.`Categorie`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `buiten_enzo`.`Categorie` (
+CREATE TABLE IF NOT EXISTS `md233161db301463`.`Categorie` (
   `idCategorie` INT NOT NULL AUTO_INCREMENT,
   `naam` VARCHAR(100) NULL,
   PRIMARY KEY (`idCategorie`)
 );
 
 -- -----------------------------------------------------
--- Table `buiten_enzo`.`Leverancier`
+-- Table `md233161db301463`.`Leverancier`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `buiten_enzo`.`Leverancier` (
+CREATE TABLE IF NOT EXISTS `md233161db301463`.`Leverancier` (
   `idLeverancier` INT NOT NULL AUTO_INCREMENT,
   `Naam` VARCHAR(100) NULL,
   `Contactpersoon` VARCHAR(100) NULL,
@@ -50,9 +50,9 @@ CREATE TABLE IF NOT EXISTS `buiten_enzo`.`Leverancier` (
 );
 
 -- -----------------------------------------------------
--- Table `buiten_enzo`.`Adres`
+-- Table `md233161db301463`.`Adres`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `buiten_enzo`.`Adres` (
+CREATE TABLE IF NOT EXISTS `md233161db301463`.`Adres` (
   `idAdres` INT NOT NULL AUTO_INCREMENT,
   `idKlant` INT NOT NULL,
   `Straat` VARCHAR(120) NULL,
@@ -60,18 +60,18 @@ CREATE TABLE IF NOT EXISTS `buiten_enzo`.`Adres` (
   `Postcode` VARCHAR(6) NULL,
   `Plaats` VARCHAR(100) NULL,
   `Land` VARCHAR(100) NULL,
-  PRIMARY KEY (`idEigenaar`),
+  PRIMARY KEY (`idAdres`),
   CONSTRAINT `fk_Adres_Klant`
    FOREIGN KEY (`idKlant`)
-   REFERENCES `buiten_enzo`.`Klant` (`idKlant`)
+   REFERENCES `md233161db301463`.`Klant` (`idKlant`)
    ON DELETE CASCADE
    ON UPDATE CASCADE
 );
 
 -- -----------------------------------------------------
--- Table `buiten_enzo`.`Artikel`
+-- Table `md233161db301463`.`Artikel`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `buiten_enzo`.`Artikel` (
+CREATE TABLE IF NOT EXISTS `md233161db301463`.`Artikel` (
   `idArtikel` INT NOT NULL AUTO_INCREMENT,
   `Kleur` VARCHAR(100) NULL,
   `Naam` VARCHAR(100) NULL,
@@ -88,46 +88,46 @@ CREATE TABLE IF NOT EXISTS `buiten_enzo`.`Artikel` (
   `Materiaal` VARCHAR(100) NULL,
   `idLeverancier` INT NULL,
   `idCategorie` INT NULL,
-  `InkoopPrijsMet DECIMAL(2,2) NULL,
+  `InkoopPrijsMet` DECIMAL(2,2) NULL,
   `InkoopPrijsZonder` DECIMAL(2,2) NULL,
   `ExtraLevertijd` VARCHAR(100) NULL,
   PRIMARY KEY (`idArtikel`),
   CONSTRAINT `fk_Artikel_Leverancier`
-    FOREIGN KEY (`idLeverancier``)
-    REFERENCES `buiten_enzo`.`Leverancier` (`idLeverancier``)
+    FOREIGN KEY (`idLeverancier`)
+    REFERENCES `md233161db301463`.`Leverancier` (`idLeverancier`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `fk_Artikel_Categorie`
     FOREIGN KEY (`idCategorie`)
-	REFERENCES `buiten_enzo`.`Categorie` (`idCategorie`)
+	REFERENCES `md233161db301463`.`Categorie` (`idCategorie`)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE
 );
 
 -- -----------------------------------------------------
--- Table `buiten_enzo`.`Winkelwagen`
+-- Table `md233161db301463`.`Winkelwagen`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `buiten_enzo`.`Winkelwagen` (
+CREATE TABLE IF NOT EXISTS `md233161db301463`.`Winkelwagen` (
   `idKlant` INT NOT NULL,
   `idArtikel` INT NOT NULL,
   `Aantal` INT NULL,
   PRIMARY KEY (`idKlant`,`idArtikel`),
   CONSTRAINT `fk_Winkelwagen_Klant`
     FOREIGN KEY (`idKlant`)
-    REFERENCES `buiten_enzo`.`Klant` (`idKlant`)
+    REFERENCES `md233161db301463`.`Klant` (`idKlant`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `fk_Winkelwagen_Artikel`
     FOREIGN KEY (`idArtikel`)
-    REFERENCES `buiten_enzo`.`Artikel` (`idArtikel`)
+    REFERENCES `md233161db301463`.`Artikel` (`idArtikel`)
     ON DELETE CASCADE
     ON UPDATE CASCADE
 );
 
 -- -----------------------------------------------------
--- Table `buiten_enzo`.`Bestelling`
+-- Table `md233161db301463`.`Bestelling`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `buiten_enzo`.`Bestelling` (
+CREATE TABLE IF NOT EXISTS `md233161db301463`.`Bestelling` (
   `idBestelling` INT NOT NULL AUTO_INCREMENT,
   `idKlant` INT NOT NULL,
   `idArtikel` INT NOT NULL,
@@ -140,22 +140,22 @@ CREATE TABLE IF NOT EXISTS `buiten_enzo`.`Bestelling` (
   PRIMARY KEY (`idBestelling`),
   CONSTRAINT `fk_Bestelling_Klant`
     FOREIGN KEY (`idKlant`)
-    REFERENCES `buiten_enzo`.`Klant` (`idKlant`)
+    REFERENCES `md233161db301463`.`Klant` (`idKlant`)
     ON DELETE NO ACTION
     ON UPDATE CASCADE,
   CONSTRAINT `fk_Bestelling_Artikel`
     FOREIGN KEY (`idArtikel`)
-    REFERENCES `buiten_enzo`.`Artikel` (`idArtikel`)
+    REFERENCES `md233161db301463`.`Artikel` (`idArtikel`)
     ON DELETE NO ACTION
     ON UPDATE CASCADE,
   CONSTRAINT `fk_Bestelling_Adres1`
     FOREIGN KEY (`idFactuurAdres`)
-    REFERENCES `buiten_enzo`.`Adres` (`idAdres`)
+    REFERENCES `md233161db301463`.`Adres` (`idAdres`)
     ON DELETE NO ACTION
     ON UPDATE CASCADE,
   CONSTRAINT `fk_Bestelling_Adres2`
     FOREIGN KEY (`idAfleverAdres`)
-    REFERENCES `buiten_enzo`.`Adres` (`idAdres`)
+    REFERENCES `md233161db301463`.`Adres` (`idAdres`)
     ON DELETE NO ACTION
     ON UPDATE CASCADE
 );
