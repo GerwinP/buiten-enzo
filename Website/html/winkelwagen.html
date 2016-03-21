@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Starter Template for Bootstrap</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../Frameworks/bootstrap-3.2.0-dist/css/bootstrap.css" rel="stylesheet">
+        
+        <!-- Add custom CSS here -->
+        <link href="../Frameworks/simple-sidebar/css/simple-sidebar.css" rel="stylesheet">
+        <link href="../Frameworks/shop-homepage/css/shop-homepage.css" rel="stylesheet">
+        <link href="../css/style.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+
+        <div id="wrapper">
+
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand"><a href="index.html">Home</a></li>
+                    <li><a href="productpaginas/buitenspeelgoed.html">Buitenspeelgoed</a>
+                        <ul id="menu">
+                            <li><a href="#">Huisjes</a></li>
+                            <ul>
+                                <li><a href="#">Linkie</a></li>
+                            </ul>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+       
+            <!-- Page content -->
+            <div id="page-content-wrapper">
+                
+                <!-- Keep all page content within the page-content inset div! -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div align="center">
+                        <h2>Winkelwagen</h2>
+                        <table class="table table-striped" style="max-width: 1000px;">
+                            <tbody>
+                                <tr>
+                                    <th width="100px">Product</th>
+                                    <th width="200px"></th>
+                                    
+                                    <th>Omschrijving</th>
+                                    <th width="50px">Aantal</th>
+                                    <th STYLE="text-align: right;" width=100px>Stuk prijs</th>
+                                    <th STYLE="text-align: right;" width=100px>Prijs</th>
+                                </tr>
+                                <tr>
+                                    <td width=100px><p><img src="http://go.3fm.nl/data/thumb/abc_media_image/1000/1716/w456.015c6_r16-9_57ac1e644a2466ac4c5fa5aab5986e29.jpg" style="max-height: 100px; max-width: 100px;"></p></td>
+                                    <td>Product</td>
+                                    <td>Omschrijving</td>
+                                    <td width="50px">aantal</td>
+                                    <td STYLE="text-align: right;" width=100px>stuk prijs</td>
+                                    <td STYLE="text-align: right;" width=100px><right>Prijs</right></th>
+                                </tr>
+                                <tr>
+                                    <td width=100px><p>foto</p></td>
+                                    <td>Product</td>
+                                    <td>Omschrijving</td>
+                                    <td width="50px">aantal</td>
+                                    <td STYLE="text-align: right;" width=100px>stuk prijs</td>
+                                    <td STYLE="text-align: right;" width=100px><right>Prijs</right></th>
+                                </tr>
+                                 <tr>
+                                     <td width=100px><p>foto</p></td>
+                                    <td>Product</td>
+                                    <td>Omschrijving</td>
+                                    <td width="50px">aantal</td>
+                                    <td STYLE="text-align: right;" width=100px>stuk prijs</td>
+                                    <td STYLE="text-align: right;" width=100px><right>Prijs</right></th>
+                                </tr>
+                                 <tr>
+                                     <td width=100px><p>foto</p></td>
+                                    <td>Product</td>
+                                    <td>Omschrijving</td>
+                                    <td width="50px">aantal</td>
+                                    <td STYLE="text-align: right;" width=100px>stuk prijs</td>
+                                    <td STYLE="text-align: right;" width=100px><right>Prijs</right></th>
+                                </tr>
+                                <tr>
+                                    <th COLSPAN="3" STYLE="text-align: right;">Subtotaal</th>
+                                    <th COLSPAN="3" STYLE="text-align: right;" width=100px>&euro; 100,00 </th>
+                                </tr>
+                                <tr>
+                                    <td COLSPAN="2" STYLE="text-align: left;">Verzendkosten</td>
+                                    <td COLSPAN="3" STYLE="text-align: center;">keuze menutje</td>
+                                    <td STYLE="text-align: right;" width=100px>Prijs</td>
+                                </tr>
+                                <tr>
+                                    <th COLSPAN="3" STYLE="text-align: right;">Totaal</th>
+                                    <th COLSPAN="3" STYLE="text-align: right;" width=100px>&euro; 105,00 </th>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                        
+                        </div>
+                    </div>
+                
+                </div>
+                
+                
+            </div>
+            
+        </div>
+
+        <!-- JavaScript -->
+        <script src="../Frameworks/shop-homepage/js/jquery-1.10.2.js"></script> 
+        <script src="../Frameworks/bootstrap-3.2.0-dist/js/bootstrap.js"></script>      
+        
+        <!-- Custom JavaScript for the Menu Toggle -->
+        <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("active");
+        });
+        </script>
+    </body>
+
+</html>
